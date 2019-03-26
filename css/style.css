@@ -17,21 +17,18 @@
 .content .slidesPicture > img {
 	width: 100%;
 	transition: all 0.3s;
-}
-.content .slidesPicture >img:nth-child(1) {
 	position: absolute;
 	top: 0;
+}
+.content .slidesPicture > img.current {
 	left: 0;
-	
+	transform: translateX(0);
+	z-index: 1;
 }
-.content .slidesPicture >img:nth-child(2),
-.content .slidesPicture >img:nth-child(3)  {
-	position: absolute;
-	top: 0;
-	left: 100%;
-} 
-.content .slidesPicture > img.right {
-	position: absolute;
-	top: 0;
-	left: 100%;
+.content .slidesPicture > img.leave {
+	transform: translateX(-100%);
+	z-index: 1;
+}
+.content .slidesPicture > img.enter {
+	transform: translateX(100%);
 }
