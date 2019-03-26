@@ -1,0 +1,37 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+*{
+	box-sizing: border-box;
+}
+.content {
+	width: 500px;
+	height: 315px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+.content .slidesPicture {
+	position: relative;
+}
+.content .slidesPicture > img {
+	width: 100%;
+	transition: all 0.3s;
+}
+.content .slidesPicture >img:nth-child(1) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+.content .slidesPicture >img:nth-child(2),
+.content .slidesPicture >img:nth-child(3)  {
+	position: absolute;
+	top: 0;
+	left: 100%;
+} 
+.content .slidesPicture > img.right {
+	position: absolute;
+	top: 0;
+	left: 100%;
+}
