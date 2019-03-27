@@ -6,36 +6,23 @@ $('.slidesPicture > img:nth-child(2)').addClass('enter')
 
 $('.slidesPicture > img:nth-child(3)').addClass('enter')
 
-
-setTimeout(()=>{
-	$('.slidesPicture > img:nth-child(1)').removeClass('current').addClass('leave')
+let n = 1
+setInterval(()=>{
+	$(`.slidesPicture > img:nth-child(${x(n)})`).removeClass('current').addClass('leave')
 		.one('transitionend', (e)=>{
 			$(e.currentTarget).removeClass('leave').addClass('enter')
 		})
-	$('.slidesPicture > img:nth-child(2)').removeClass('enter').addClass('current')
+	$(`.slidesPicture > img:nth-child(${x(n+1)})`).removeClass('enter').addClass('current')
+	n += 1
 },3000)
 
 			
-setTimeout(()=>{
-	$('.slidesPicture > img:nth-child(2)').removeClass('current').addClass('leave')
-		.one('transitionend', (e)=>{
-			$(e.currentTarget).removeClass('leave').addClass('enter')
-		})
-	$('.slidesPicture > img:nth-child(3)').removeClass('enter').addClass('current')
-},6000)
-
-setTimeout(()=>{
-	$('.slidesPicture > img:nth-child(3)').removeClass('current').addClass('leave')
-		.one('transitionend', (e)=>{
-			$(e.currentTarget).removeClass('leave').addClass('enter')
-		})
-	$('.slidesPicture > img:nth-child(1)').removeClass('enter').addClass('current')
-},9000)
-
-setTimeout(()=>{
-	$('.slidesPicture > img:nth-child(1)').removeClass('current').addClass('leave')
-		.one('transitionend', (e)=>{
-			$(e.currentTarget).removeClass('leave').addClass('enter')
-		})
-	$('.slidesPicture > img:nth-child(2)').removeClass('enter').addClass('current')
-},12000)
+function x(n){
+	if(n>3){
+		n = n%3
+		if(n===0){
+			n = 3
+		}
+	} //n的取值1 2 3
+	return n
+}
