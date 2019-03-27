@@ -10,50 +10,24 @@
 	<body>
 		<div class="content">
 			<div class="slidesPicture">
-				<img src="https://i.loli.net/2019/03/19/5c9062ae2ca54.jpg" width="500px" height="315px"/>
-				<img src="https://i.loli.net/2019/03/19/5c9062b11e9b1.jpg" width="500px" height="315px"/>
-				<img src="https://i.loli.net/2019/03/19/5c9062b2eb024.jpg" width="500px" height="315px"/>
+				<img src="img/10324339149977.jpg" width="500px" height="315px"/>
+				<img src="img/14164388149977.jpg" width="500px" height="315px"/>
+				<img src="img/175342171.png" width="500px" height="315px"/>
 			</div>
 		</div>
 		<script>
-			$('.images > img:nth-child(1)').addClass('current')
-			$('.images > img:nth-child(2)').addClass('enter')
-			$('.images > img:nth-child(3)').addClass('enter')
+		$('.slidesPicture > img:nth-child(1)').addClass('current')
+			$('.slidesPicture > img:nth-child(2)').addClass('enter')
+			$('.slidesPicture > img:nth-child(3)').addClass('enter')
 
 			setInterval(()=>{
-			$('.images > img:nth-child(1)').removeClass('current').addClass('leave')
+			$('.slidesPicture > img:nth-child(1)').removeClass('current').addClass('leave')
 				.one('transitionend', (xx)=>{
 				$(xx.currentTarget).removeClass('leave').addClass('enter')
 				})
-			$('.images > img:nth-child(2)').removeClass('enter').addClass('current')
+			$('.slidesPicture > img:nth-child(2)').removeClass('enter').addClass('current')
 			},3000)
-
-			setInterval(()=>{
-			$('.images > img:nth-child(2)').removeClass('current').addClass('leave')
-				.one('transitionend', (xx)=>{
-				$(xx.currentTarget).removeClass('leave').addClass('enter')
-				})
-			$('.images > img:nth-child(3)').removeClass('enter').addClass('current')
-			},6000)
-
-			setInterval(()=>{
-			$('.images > img:nth-child(3)').removeClass('current').addClass('leave')
-				.one('transitionend', (xx)=>{
-				$(xx.currentTarget).removeClass('leave').addClass('enter')
-				})
-			$('.images > img:nth-child(1)').removeClass('enter').addClass('current')
-			},9000)
-
-			setInterval(()=>{
-			$('.images > img:nth-child(1)').removeClass('current').addClass('leave')
-				.one('transitionend', (xx)=>{
-				$(xx.currentTarget).removeClass('leave').addClass('enter')
-				})
-			$('.images > img:nth-child(2)').removeClass('enter').addClass('current')
-			},12000)
-
 		</script>
-		
 	</body>
 
 </html>
