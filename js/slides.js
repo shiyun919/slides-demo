@@ -1,21 +1,23 @@
-
-
-$('.slidesPicture > img:nth-child(1)').addClass('current')
-
-$('.slidesPicture > img:nth-child(2)').addClass('enter')
-
-$('.slidesPicture > img:nth-child(3)').addClass('enter')
-
-let n = 1
+let n 
+初始化()
 setInterval(()=>{
-	$(`.slidesPicture > img:nth-child(${x(n)})`).removeClass('current').addClass('leave')
+	makeLeave(getImage(n))
 		.one('transitionend', (e)=>{
-			$(e.currentTarget).removeClass('leave').addClass('enter')
+			makeEnter($(e.currentTarget))
 		})
-	$(`.slidesPicture > img:nth-child(${x(n+1)})`).removeClass('enter').addClass('current')
+		makeCurrent(getImage(n+1))
 	n += 1
 },3000)
 
+
+
+
+
+//封装函数，把几行代码放在一个函数里
+
+function getImage(n){
+	return $(`.slidesPicture > img:nth-child(${x(n)})`)
+}
 			
 function x(n){
 	if(n>3){
@@ -25,4 +27,26 @@ function x(n){
 		}
 	} //n的取值1 2 3
 	return n
+}
+
+
+function 初始化(){
+	n = 1
+	$(`.slidesPicture > img:nth-child(${n})`).addClass('current')
+		.siblings().addClass('enter')
+}
+
+function makeCurrent($node){
+	$node.removeClass('enter leave').addClass('current')
+	return $node
+}
+
+function makeLeave($node){
+	$node.removeClass('current enter').addClass('leave')
+	return $node
+}
+
+function makeEnter($node){
+	$node.removeClass('leave current').addClass('enter')
+	return $node
 }
