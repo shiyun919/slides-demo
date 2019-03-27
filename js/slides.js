@@ -1,5 +1,8 @@
+
+
 $('.slidesPicture > img:nth-child(1)').addClass('current')
 $('.slidesPicture > img:nth-child(2)').addClass('enter')
+$('.slidesPicture > img:nth-child(3)').addClass('enter')
 
 setTimeout(()=>{
 	$('.slidesPicture > img:nth-child(1)').removeClass('current').addClass('leave')
