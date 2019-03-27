@@ -1,11 +1,11 @@
 
 
 $('.slidesPicture > img:nth-child(1)').addClass('current')
-console.log(1)
+
 $('.slidesPicture > img:nth-child(2)').addClass('enter')
-console.log(1)
+
 $('.slidesPicture > img:nth-child(3)').addClass('enter')
-console.log(1)
+
 
 setTimeout(()=>{
 	$('.slidesPicture > img:nth-child(1)').removeClass('current').addClass('leave')
