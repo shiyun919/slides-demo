@@ -30,6 +30,8 @@ function x(n){
 }
 
 
+
+
 function 初始化(){
 	n = 1
 	$(`.slidesPicture > img:nth-child(${n})`).addClass('current')
