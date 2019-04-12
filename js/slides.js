@@ -14,9 +14,9 @@ let timer = setInterval(()=>{
 
 //页面切走了 ，轮播停止；切回来再播放
 
-document.addEventListener('visibilitychange', function(s){
+document.addEventListener('visibilitychange', function(e){
 	if(document.hidden){
-		window.clearInterval('timer')
+		window.clearInterval(timer)
 	}else{
 		timer = setInterval(()=>{
 			makeLeave(getImage(n))
