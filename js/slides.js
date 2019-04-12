@@ -1,6 +1,6 @@
 let n 
 初始化()
-setInterval(()=>{
+let timer = setInterval(()=>{
 	makeLeave(getImage(n))
 		.one('transitionend', (e)=>{
 			makeEnter($(e.currentTarget))
@@ -8,6 +8,33 @@ setInterval(()=>{
 		makeCurrent(getImage(n+1))
 	n += 1
 },3000)
+
+
+//解决一个bug 切走再回来页面会出现乱的问题
+
+//页面切走了 ，轮播停止；切回来再播放
+
+document.addEventListener('visibilitychange', function(e){
+	if(document.hidden){
+		window.clearInterval('timer')
+	}else{
+		timer = setInterval(()=>{
+			makeLeave(getImage(n))
+				.one('transitionend', (e)=>{
+					makeEnter($(e.currentTarget))
+				})
+				makeCurrent(getImage(n+1))
+			n += 1
+		},3000)
+	}
+})
+
+
+
+
+
+
+
 
 
 
